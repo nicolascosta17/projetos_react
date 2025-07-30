@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import Banner from './componentes/banner/Banner';
 
 function App() {
   return (
     <div className="App">
-      <h1>Olá Mundo</h1>
-      <p>Esse é meu primeiro projeto em React</p>
+      <Banner />
     </div>
   );
 }
