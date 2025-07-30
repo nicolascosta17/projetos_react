@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+.App h1 {
+  color: blue;
+}
+.App p {
+  font-size: 18px;
+  color: gray;
+}
