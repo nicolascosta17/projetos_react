@@ -1,3 +1,5 @@
+import'./botao.css'
+
 function Primeiro_Botao(){ // Função que cria um botão, por enquanto sem ação
     return(
         <button>Eu sou um botão</button>
