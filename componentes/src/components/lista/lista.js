@@ -9,8 +9,8 @@ const frutas = [ // Cria um constante frutas que é um dicionário
 
 function Lista_Frutas(){ // Cria uma função Lista_Frutas
     const Lista = frutas.map(product => // criado a constante Lista que mapea a constante frutas e atribui a product
-        <li 
-        key={product.id} // puxa a chave identificadoras "product.id"
+        <li // puxa a chave identificadoras "product.id"
+        key={product.id} 
         style={{color: product.Fruta ? "magenta": 'darkgreen'}}  // Se a Fruta = True a cor vai ser magente senão vai ser verde escuro
         >
         {product.title} /* Puxa o titulo das product
