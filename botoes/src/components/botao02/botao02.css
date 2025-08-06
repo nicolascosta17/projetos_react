@@ -1,0 +1,19 @@
+.btn {
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: brown;
+    box-shadow: 2px 2px 5px rgb(0, 186, 248);
+}
+
+.btn:hover {
+    background-color: red;
+    transition: 0.5s;
+}
+
+button:active {
+    background-color: #1f8d8d;
+    transform: scale(0.98);
+}
