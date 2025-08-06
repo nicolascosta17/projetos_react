@@ -1,0 +1,28 @@
+button{
+    background-color: #2106ac;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/*Estilo para quando o botão é focado (clicado os acessado via teclado)*/
+button:focus{
+    outline: none; /*Revome a linha de contorno padrão que aparece ao focar*/
+    box-shadow: 0 0 10px rgba(68, 170, 237, 0.5); /*Adicionando um brilho ao redor do botão*/
+}
+
+/*Efeito houver (ao poassar o mouse sobre o botao)*/
+button:hover{
+    background-color: #2980b9; /*Altera a cor de fundo ao passar o mouse*/
+}
+
+/*Estilo para quando o botão é precionado*/
+button:active{
+    background-color: #1f8d8d; /*Muda a cor para um tom de azul ainda mais escuro ao clicar*/
+    transform: scale(0.98); /*Faz um leve efeito de "apertar" o botão ao pressionar*/
+}
