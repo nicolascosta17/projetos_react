@@ -8,4 +8,4 @@ function Texto_01(){
         </h1>
     );
 }
-export default Texto_01
+export default Texto_01;
