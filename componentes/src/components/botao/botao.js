@@ -1,8 +1,8 @@
-import'./botao.css'
+import'./botao.css' // Importado a estilização do botao.css
 
 function Primeiro_Botao(){ // Função que cria um botão, por enquanto sem ação
-    return(
-        <button>Eu sou um botão</button>
+    return( 
+        <button>Eu sou um botão</button> // Retorna o botão com a mensagem "Eu sou um botão"
     );
 }
 
