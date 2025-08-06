@@ -1,23 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
+import Botao_01 from './components/botao01/botao01';
+import Botao_02 from './components/botao02/botao02';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Botao_01/><br></br><br></br>
+      <Botao_02/><br></br><br></br>
     </div>
   );
 }
