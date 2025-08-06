@@ -1,0 +1,17 @@
+.rec{
+    border: none;
+    border-radius: 22px;
+    padding: 10px 20px;
+    font-size: x-large;
+    font-weight: bold;
+    font-style: italic;
+    background-color: cornflowerblue;
+    box-shadow: 2px 2px 10px rgb(36, 223, 192);
+    cursor:pointer;
+}
+.rec:hover{
+    background-color: rgb(37, 105, 231);
+    box-shadow: 7px 7px 10px rgb(196, 90, 19);
+    transition: 1s;
+    color: cornsilk;
+}
