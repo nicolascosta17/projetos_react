@@ -1,31 +1,27 @@
 import React, { useState } from "react";
 
 function Numeric() {
-    const [mostrarDecimal, setMostrarDecimal] = useState(false);
-    const [mostrarBinario, setMostrarBinario] = useState(false);
-
-    const [decimal, setDecimal] = useState('');
-    const [binario, setBinario] = useState('');
+    const [modo, setModo] = useState(''); // "decimal" ou "binario"
+    const [valor, setValor] = useState('');
     const [conversao, setConversao] = useState(null);
 
-    const calculoConversao = () => {
-        if (mostrarDecimal && decimal !== '') {
-            const d = parseInt(decimal, 10);
+    const calcularConversao = () => {
+        if (modo === 'decimal') {
+            const d = parseInt(valor, 10);
             if (!isNaN(d)) {
-                const bin = d.toString(2); // Decimal → Binário
-                setConversao(`${d} em binário é ${bin}`);
+                setConversao(`${d} em binário é ${d.toString(2)}`);
             } else {
                 setConversao("Número decimal inválido.");
             }
-        } else if (mostrarBinario && binario !== '') {
-            const b = parseInt(binario, 2);
+        } else if (modo === 'binario') {
+            const b = parseInt(valor, 2);
             if (!isNaN(b)) {
-                setConversao(`${binario} em decimal é ${b}`); // Binário → Decimal
+                setConversao(`${valor} em decimal é ${b}`);
             } else {
                 setConversao("Número binário inválido.");
             }
         } else {
-            setConversao("Preencha um valor para converter.");
+            setConversao("Selecione o tipo de conversão.");
         }
     };
 
@@ -36,31 +32,29 @@ function Numeric() {
             <div>
                 <label>
                     <input
-                        type="checkbox"
-                        checked={mostrarDecimal}
+                        type="radio"
+                        name="modo"
+                        value="decimal"
+                        checked={modo === 'decimal'}
                         onChange={() => {
-                            setMostrarDecimal(!mostrarDecimal);
-                            setMostrarBinario(false); // desmarca outro
+                            setModo('decimal');
+                            setValor('');
                             setConversao(null);
-                            setDecimal('');
-                            setBinario('');
                         }}
                     />
                     Decimal → Binário
                 </label>
-            </div>
 
-            <div>
                 <label>
                     <input
-                        type="checkbox"
-                        checked={mostrarBinario}
+                        type="radio"
+                        name="modo"
+                        value="binario"
+                        checked={modo === 'binario'}
                         onChange={() => {
-                            setMostrarBinario(!mostrarBinario);
-                            setMostrarDecimal(false); // desmarca outro
+                            setModo('binario');
+                            setValor('');
                             setConversao(null);
-                            setDecimal('');
-                            setBinario('');
                         }}
                     />
                     Binário → Decimal
@@ -69,29 +63,18 @@ function Numeric() {
 
             <hr />
 
-            {mostrarDecimal && (
-                <div>
-                    <input
-                        type="number"
-                        placeholder="Digite Decimal"
-                        value={decimal}
-                        onChange={(e) => setDecimal(e.target.value)}
-                    />
-                </div>
-            )}
-
-            {mostrarBinario && (
+            {modo && (
                 <div>
                     <input
                         type="text"
-                        placeholder="Digite Binário"
-                        value={binario}
-                        onChange={(e) => setBinario(e.target.value)}
+                        placeholder={`Digite o valor em ${modo}`}
+                        value={valor}
+                        onChange={(e) => setValor(e.target.value)}
                     />
                 </div>
             )}
 
-            <button onClick={calculoConversao}>Converter</button>
+            <button onClick={calcularConversao}>Converter</button>
 
             {conversao && <h3>Resultado: {conversao}</h3>}
         </div>

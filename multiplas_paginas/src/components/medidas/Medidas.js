@@ -1,112 +1,78 @@
-// Criar um conversor de temperaturas de Km, m, cm e mm
+// Conversão entre km, m, cm
 import React, { useState } from "react";
-function Medidas() {
-    const [mostrarKm, setMostrarKM] = useState(false);
-    const [mostrarMetro, setMostrarMetro] = useState(false);
-    const [mostrarCenti, setMostrarCenti] = useState(false);
-    
 
-    const [kilometro, setKM] = useState('');
-    const [metro, setMetro] = useState('');
-    const [centimetro, setCenti] = useState('');
+function Medidas() {
+    const [de, setDe] = useState('');
+    const [para, setPara] = useState('');
+    const [valor, setValor] = useState('');
     const [conversao, setConversao] = useState(null);
 
-    const calculoConversao = () => {
-        const k = parseFloat(kilometro);
-        const m = parseFloat(metro);
-        const c = parseFloat(centimetro);
+    const converterMedidas = () => {
+        const v = parseFloat(valor);
 
-        if(!isNaN(k) && mostrarMetro){
-            setConversao((k * 1000) + "m");
-        } else if (!isNaN(k) && mostrarCenti){
-            setConversao((k * 100000) + "cm");
-        } else if (!isNaN(m) && mostrarKm){
-            setConversao((m / 1000) + "km");
-        } else if (!isNaN(m) && mostrarCenti){
-            setConversao((m * 100) + "cm");
-        } else if (!isNaN(c) && mostrarKm){
-            setConversao((c / 100000) + "km");
-        } else if (!isNaN(c) && mostrarMetro){
-            setConversao((c / 100) + "m");
-        } else{
-            alert ("Por favor, digite um valor válido")
+        if (isNaN(v)) {
+            alert("Digite um valor válido.");
+            return;
         }
 
+        if (de === para) {
+            setConversao(`${v} ${para}`);
+            return;
+        }
+
+        let resultado;
+
+        const unidades = {
+            "km": 1000000,
+            "m": 1000,
+            "cm": 10,
+            "mm": 1
+        };
+
+        if (unidades[de] && unidades[para]) {
+            resultado = (v * unidades[de]) / unidades[para];
+            setConversao(`${resultado} ${para}`);
+        } else {
+            setConversao("Conversão inválida.");
+        }
     };
 
     return (
         <div>
-            <h2>Conversão de Temperaturas</h2>
+            <h2>Conversão de Medidas</h2>
 
             <div>
-                <label>
-                    <input
-                        type="checkbox"
-                        checked={mostrarKm}
-                        onChange={() => setMostrarKM(!mostrarKm)}
-                    />
-                    Kilometro
-                </label>
+                <label>De: </label>
+                <select value={de} onChange={(e) => setDe(e.target.value)}>
+                    <option value="">Selecione</option>
+                    <option value="km">Quilômetro</option>
+                    <option value="m">Metro</option>
+                    <option value="cm">Centímetro</option>
+                    <option value="mm">Milímetro</option>
+                </select>
             </div>
 
             <div>
-                <label>
-                    <input
-                        type="checkbox"
-                        checked={mostrarMetro}
-                        onChange={() => setMostrarMetro(!mostrarMetro)}
-                    />
-                    Metro
-                </label>
+                <label>Para: </label>
+                <select value={para} onChange={(e) => setPara(e.target.value)}>
+                    <option value="">Selecione</option>
+                    <option value="km">Quilômetro</option>
+                    <option value="m">Metro</option>
+                    <option value="cm">Centímetro</option>
+                    <option value="mm">Milímetro</option>
+                </select>
             </div>
 
             <div>
-                <label>
-                    <input
-                        type="checkbox"
-                        checked={mostrarCenti}
-                        onChange={() => setMostrarCenti(!mostrarCenti)}
-                    />
-                    Centimetro
-                </label>
+                <input
+                    type="number"
+                    placeholder="Digite o valor"
+                    value={valor}
+                    onChange={(e) => setValor(e.target.value)}
+                />
             </div>
 
-            <hr />
-
-            {mostrarKm && (
-                <div>
-                    <input
-                        type="number"
-                        placeholder="Digite Kilometro"
-                        value={kilometro}
-                        onChange={(e) => setKM(e.target.value)}
-                    />
-                </div>
-            )}
-
-            {mostrarMetro && (
-                <div>
-                    <input
-                        type="number"
-                        placeholder="Digite Metro"
-                        value={metro}
-                        onChange={(e) => setMetro(e.target.value)}
-                    />
-                </div>
-            )}
-
-            {mostrarCenti && (
-                <div>
-                    <input
-                        type="number"
-                        placeholder="Digite Centimetro"
-                        value={centimetro}
-                        onChange={(e) => setCenti(e.target.value)}
-                    />
-                </div>
-            )}
-
-            <button onClick={calculoConversao}>Converter</button>
+            <button onClick={converterMedidas}>Converter</button>
 
             {conversao && <h3>Resultado: {conversao}</h3>}
         </div>

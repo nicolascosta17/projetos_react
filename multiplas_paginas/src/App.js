@@ -22,31 +22,30 @@ function App() {
     }
   }
   return (
-    <body >
-      <div className="App" >
-        <nav >
-          <ul className='lista'>
-            <li>
-              <label>🏠</label>
-              <button onClick={() => setPage('home')}>Home</button>
-            </li>
-            <li>
-              <label>🌧️</label>
-              <button onClick={() => setPage('temperatura')}>Temperaturas</button>
-            </li>
-            <li>
-              <label>📏</label>
-              <button onClick={() => setPage('medidas')}>Medidas</button>
-            </li>
-            <li>
-              <label>👩🏻‍💻</label>
-              <button onClick={() => setPage('numerico')}>Numérico</button>
-            </li>
-          </ul>
-        </nav>
-        {rederPageAtual()}
-      </div>
-    </body>
+    <div className="App" >
+      <nav >
+        <ul className='lista'>
+          <li>
+            <label>🏠</label>
+            <button onClick={() => setPage('home')}>Home</button>
+          </li>
+          <li>
+            <label>🌧️</label>
+            <button onClick={() => setPage('temperatura')}>Temperaturas</button>
+          </li>
+          <li>
+            <label>📏</label>
+            <button onClick={() => setPage('medidas')}>Medidas</button>
+          </li>
+          <li>
+            <label>👩🏻‍💻</label>
+            <button onClick={() => setPage('numerico')}>Numérico</button>
+          </li>
+        </ul>
+      </nav>
+      {rederPageAtual()}
+    </div>
+
   );
 }
 

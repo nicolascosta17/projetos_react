@@ -1,35 +1,42 @@
-// Criar um conversor de temperaturas de Celsius, Kelvin e Fahrenheit
+// Conversão entre Celsius, Kelvin e Fahrenheit
 import React, { useState } from "react";
 
 function Temp() {
-    const [mostrarCelsius, setMostrarCelsius] = useState(false);
-    const [mostrarKelvin, setMostrarKelvin] = useState(false);
-    const [mostrarFah, setMostrarFahrenheit] = useState(false);
-
-    const [celsius, setCelsius] = useState('');
-    const [kelvin, setKelvin] = useState('');
-    const [fahren, setFahrenheit] = useState('');
+    const [de, setDe] = useState('');
+    const [para, setPara] = useState('');
+    const [valor, setValor] = useState('');
     const [conversao, setConversao] = useState(null);
 
-    const calculoConversao = () => {
-        const c = parseFloat(celsius);
-        const k = parseFloat(kelvin);
-        const f = parseFloat(fahren);
+    const converterTemperatura = () => {
+        const v = parseFloat(valor);
 
-        if (!isNaN(c) && mostrarKelvin) {
-            setConversao((c + 273.15).toFixed(2) + " K");
-        } else if (!isNaN(c) && mostrarFah) {
-            setConversao(((c * 9 / 5) + 32).toFixed(2) + " °F");
-        } else if (!isNaN(k) && mostrarCelsius) {
-            setConversao((k - 273.15).toFixed(2) + " °C");
-        } else if (!isNaN(k) && mostrarFah) {
-            setConversao((((k - 273.15) * 9 / 5) + 32).toFixed(2) + "°F");
-        } else if (!isNaN(f) && mostrarCelsius) {
-            setConversao(((f - 32) * 5 / 9).toFixed(2) + " °C");
-        } else if (!isNaN(f) && mostrarKelvin) {
-            setConversao((((f - 32) * 5 / 9) + 273.15).toFixed(2) + "°K");
+        if (isNaN(v)) {
+            alert("Digite um valor válido.");
+            return;
+        }
+
+        if (de === para) {
+            setConversao(`${v} ${para}`);
+            return;
+        }
+
+        let resultado;
+
+        if (de === 'Celsius') {
+            if (para === 'Kelvin') resultado = v + 273.15;
+            else if (para === 'Fahrenheit') resultado = (v * 9/5) + 32;
+        } else if (de === 'Kelvin') {
+            if (para === 'Celsius') resultado = v - 273.15;
+            else if (para === 'Fahrenheit') resultado = (v - 273.15) * 9/5 + 32;
+        } else if (de === 'Fahrenheit') {
+            if (para === 'Celsius') resultado = (v - 32) * 5/9;
+            else if (para === 'Kelvin') resultado = (v - 32) * 5/9 + 273.15;
+        }
+
+        if (resultado !== undefined) {
+            setConversao(`${resultado.toFixed(2)} ${para}`);
         } else {
-            alert("Selecione pelo menos uma temperatura e insira um valor válido.");
+            setConversao("Conversão inválida.");
         }
     };
 
@@ -38,74 +45,35 @@ function Temp() {
             <h2>Conversão de Temperaturas</h2>
 
             <div>
-                <label>
-                    <input
-                        type="checkbox"
-                        checked={mostrarCelsius}
-                        onChange={() => setMostrarCelsius(!mostrarCelsius)}
-                    />
-                    Celsius
-                </label>
+                <label>De: </label>
+                <select value={de} onChange={(e) => setDe(e.target.value)}>
+                    <option value="">Selecione</option>
+                    <option value="Celsius">Celsius</option>
+                    <option value="Kelvin">Kelvin</option>
+                    <option value="Fahrenheit">Fahrenheit</option>
+                </select>
             </div>
 
             <div>
-                <label>
-                    <input
-                        type="checkbox"
-                        checked={mostrarKelvin}
-                        onChange={() => setMostrarKelvin(!mostrarKelvin)}
-                    />
-                    Kelvin
-                </label>
+                <label>Para: </label>
+                <select value={para} onChange={(e) => setPara(e.target.value)}>
+                    <option value="">Selecione</option>
+                    <option value="Celsius">Celsius</option>
+                    <option value="Kelvin">Kelvin</option>
+                    <option value="Fahrenheit">Fahrenheit</option>
+                </select>
             </div>
 
             <div>
-                <label>
-                    <input
-                        type="checkbox"
-                        checked={mostrarFah}
-                        onChange={() => setMostrarFahrenheit(!mostrarFah)}
-                    />
-                    Fahrenheit
-                </label>
+                <input
+                    type="number"
+                    placeholder="Digite o valor"
+                    value={valor}
+                    onChange={(e) => setValor(e.target.value)}
+                />
             </div>
 
-            <hr />
-
-            {mostrarCelsius && (
-                <div>
-                    <input
-                        type="number"
-                        placeholder="Digite Celsius"
-                        value={celsius}
-                        onChange={(e) => setCelsius(e.target.value)}
-                    />
-                </div>
-            )}
-
-            {mostrarKelvin && (
-                <div>
-                    <input
-                        type="number"
-                        placeholder="Digite Kelvin"
-                        value={kelvin}
-                        onChange={(e) => setKelvin(e.target.value)}
-                    />
-                </div>
-            )}
-
-            {mostrarFah && (
-                <div>
-                    <input
-                        type="number"
-                        placeholder="Digite Fahrenheit"
-                        value={fahren}
-                        onChange={(e) => setFahrenheit(e.target.value)}
-                    />
-                </div>
-            )}
-
-            <button onClick={calculoConversao}>Converter</button>
+            <button onClick={converterTemperatura}>Converter</button>
 
             {conversao && <h3>Resultado: {conversao}</h3>}
         </div>
