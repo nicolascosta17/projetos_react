@@ -17,8 +17,20 @@ function Medidas() {
         const m = parseFloat(metro);
         const c = parseFloat(centimetro);
 
-        if(!isNaN(k) && mostrarKm){
-            setConversao (k * 1000).toFixed(2) + "cm";
+        if(!isNaN(k) && mostrarMetro){
+            setConversao((k * 1000) + "m");
+        } else if (!isNaN(k) && mostrarCenti){
+            setConversao((k * 100000) + "cm");
+        } else if (!isNaN(m) && mostrarKm){
+            setConversao((m / 1000) + "km");
+        } else if (!isNaN(m) && mostrarCenti){
+            setConversao((m * 100) + "cm");
+        } else if (!isNaN(c) && mostrarKm){
+            setConversao((c / 100000) + "km");
+        } else if (!isNaN(c) && mostrarMetro){
+            setConversao((c / 100) + "m");
+        } else{
+            alert ("Por favor, digite um valor válido")
         }
 
     };
