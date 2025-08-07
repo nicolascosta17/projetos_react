@@ -1,6 +1,5 @@
 // Criar um conversor de temperaturas de Km, m, cm e mm
 import React, { useState } from "react";
-
 function Medidas() {
     const [mostrarKm, setMostrarKM] = useState(false);
     const [mostrarMetro, setMostrarMetro] = useState(false);
