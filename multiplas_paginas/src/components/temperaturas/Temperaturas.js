@@ -1,5 +1,6 @@
 // Conversão entre Celsius, Kelvin e Fahrenheit
 import React, { useState } from "react";
+import './Temperaturas.css';
 
 function Temp() {
     const [de, setDe] = useState('');
