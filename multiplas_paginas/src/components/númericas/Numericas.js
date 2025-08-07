@@ -1,0 +1,1 @@
+// Criar um conversor de temperaturas de decimal e binpario.
