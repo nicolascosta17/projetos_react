@@ -61,8 +61,6 @@ function Numeric() {
                 </label>
             </div>
 
-            <hr />
-
             {modo && (
                 <div>
                     <input
