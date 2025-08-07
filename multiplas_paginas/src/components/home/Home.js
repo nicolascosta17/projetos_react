@@ -2,7 +2,7 @@ import React from "react";
 import './Home.css';
 function Home() {
     return (
-    <div className='home'>
+    <div>
         <h3>🎉Bem-vindo ao programa de Conversões🎉</h3>
         <p>Escolha a Conversão desejada</p>
     </div>
