@@ -11,40 +11,42 @@ function App() {
   const [page, setPage] = useState('home')
 
   const rederPageAtual = () => {
-    if (page === 'home'){
-      return <Home/>
-    } else if (page === 'temperatura'){
-      return <Temp/>
-    } else if(page ==='medidas'){
-      return <Medidas/>
-    } else if (page === 'numerico'){
-      return <Numeric/>
+    if (page === 'home') {
+      return <Home />
+    } else if (page === 'temperatura') {
+      return <Temp />
+    } else if (page === 'medidas') {
+      return <Medidas />
+    } else if (page === 'numerico') {
+      return <Numeric />
     }
   }
   return (
-    <div className="App">
-      <nav>
-        <ul className='lista'>
-          <li>
-            <label>🏠</label>
-            <button onClick={() => setPage('home')}>Home</button>
-          </li>
-          <li>
-            <label>🌡️</label>
-            <button onClick={() => setPage('temperatura')}>Temperaturas</button>
-          </li>
-          <li>
-            <label>📏</label>
-            <button onClick={() => setPage('medidas')}>Medidas</button>
-          </li>
-          <li>
-            <label>👩🏻‍💻</label>
-            <button onClick={() => setPage('numerico')}>Numérico</button>
-          </li>
-        </ul>
-      </nav>
-      {rederPageAtual()}
-    </div>
+    <body >
+      <div className="App" >
+        <nav >
+          <ul className='lista'>
+            <li>
+              <label>🏠</label>
+              <button onClick={() => setPage('home')}>Home</button>
+            </li>
+            <li>
+              <label>🌧️</label>
+              <button onClick={() => setPage('temperatura')}>Temperaturas</button>
+            </li>
+            <li>
+              <label>📏</label>
+              <button onClick={() => setPage('medidas')}>Medidas</button>
+            </li>
+            <li>
+              <label>👩🏻‍💻</label>
+              <button onClick={() => setPage('numerico')}>Numérico</button>
+            </li>
+          </ul>
+        </nav>
+        {rederPageAtual()}
+      </div>
+    </body>
   );
 }
 

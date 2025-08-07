@@ -40,3 +40,19 @@
   list-style: none;
   text-align:start !important;
 }
+
+button{
+  border: none;
+  border-radius: 5px;
+  padding: 2px 10px;
+  background-color: #282c34;
+  color: white;
+  box-shadow: 2.5px 2.5px 15px rgb(127, 127, 127);
+}
+button:hover{
+  font-size: 15px;
+  padding: 2.5px 11px;
+  transition: 0.5s;
+  box-shadow: 4px 4px 10px rgb(127, 127, 127);
+  cursor: pointer;
+}
