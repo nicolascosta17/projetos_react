@@ -65,6 +65,8 @@ function Temp() {
                 </select>
             </div>
 
+        <br></br>
+
             <div>
                 <input
                     type="number"
@@ -73,6 +75,8 @@ function Temp() {
                     onChange={(e) => setValor(e.target.value)}
                 />
             </div>
+
+        <br/>
 
             <button onClick={converterTemperatura}>Converter</button>
 

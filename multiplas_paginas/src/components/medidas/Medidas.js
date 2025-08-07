@@ -63,6 +63,8 @@ function Medidas() {
                 </select>
             </div>
 
+        <br></br>
+        
             <div>
                 <input
                     type="number"
@@ -71,7 +73,7 @@ function Medidas() {
                     onChange={(e) => setValor(e.target.value)}
                 />
             </div>
-
+        <br></br>
             <button onClick={converterMedidas}>Converter</button>
 
             {conversao && <h3>Resultado: {conversao}</h3>}

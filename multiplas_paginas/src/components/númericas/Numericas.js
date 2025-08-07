@@ -61,6 +61,8 @@ function Numeric() {
                 </label>
             </div>
 
+        <br></br>
+
             {modo && (
                 <div>
                     <input
@@ -71,7 +73,7 @@ function Numeric() {
                     />
                 </div>
             )}
-
+        <br/>
             <button onClick={calcularConversao}>Converter</button>
 
             {conversao && <h3>Resultado: {conversao}</h3>}
