@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 function MediaProvas() {
     // Definindo estados para armazenar os valores das três notas e da média
-    const [nota1, setNota1] = useState(''); // Nota 1
+    const [nota1, setNota1] = useState(''); // Cria a constante que seta a Nota1
     const [nota2, setNota2] = useState(''); // Nota 1
     const [nota3, setNota3] = useState(''); // Nota 1
     const [media, setMedia] = useState(null); // Média calculada
