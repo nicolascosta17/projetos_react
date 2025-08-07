@@ -1,3 +1,0 @@
-# NOVA APLICAÇÃO REACT
-
-Propaganda de TV SAMSUNG 55'
