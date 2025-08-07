@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Temp from './components/temperaturas/Temperaturas';
 import Home from './components/home/Home';
 import Medidas from './components/medidas/Medidas';
+import Numeric from './components/númericas/Numericas';
 
 
 function App() {
@@ -16,6 +17,8 @@ function App() {
       return <Temp/>
     } else if(page ==='medidas'){
       return <Medidas/>
+    } else if (page === 'numerico'){
+      return <Numeric/>
     }
   }
   return (
@@ -33,6 +36,10 @@ function App() {
           <li>
             <label>📏</label>
             <button onClick={() => setPage('medidas')}>Medidas</button>
+          </li>
+          <li>
+            <label>👩🏻‍💻</label>
+            <button onClick={() => setPage('numerico')}>Numérico</button>
           </li>
         </ul>
       </nav>
