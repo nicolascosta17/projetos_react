@@ -1,3 +1,0 @@
-DATABASE client;
-USE client;
-
