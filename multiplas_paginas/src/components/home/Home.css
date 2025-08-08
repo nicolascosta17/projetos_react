@@ -1,0 +1,13 @@
+*{
+  background-color: rgb(167, 222, 224);
+}
+h3{
+    font-size: 50px;
+}
+body{
+  color: black !important;
+}
+p{
+  font-size: 20px;
+  font-style: italic;
+}
