@@ -11,7 +11,7 @@ function Numeric() {
             if (!isNaN(d)) {
                 setConversao(`${d} em binário é ${d.toString(2)}`);
             } else {
-                setConversao("Número decimal inválido.");
+                setConversao(alert("Digite um valor válido."));
             }
         } else if (modo === 'binario') {
             const b = parseInt(valor, 2);
@@ -21,7 +21,7 @@ function Numeric() {
                 setConversao("Número binário inválido.");
             }
         } else {
-            setConversao("Selecione o tipo de conversão.");
+            setConversao(alert("Digite um valor válido."));
         }
     };
 
